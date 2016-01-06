@@ -1,0 +1,63 @@
+<div class="fyInformation">
+    <div class="fyInfoWp mgY10 pd10 tb-bs">
+        <div class="fif-des">
+            <!--<h3>翡翠城 精装 居家装修 大套二翡翠城 精装 居家装修 大套二翡翠城 精装</h3>-->
+            <h3><%=item.estate_name%> <%=item.property_title%>  <%=item.comments%></h3>
+            <ul class="fif-des-list clearfix">
+                <li>售价：<strong><%=item.price%></strong><span><%=item.price_unit%></span></li>
+                <li>户型：<span><%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</span></li>
+                <li>楼层：<span><%=item.floor%>/<%=item.max_floor%></span></li>
+                <li>面积：<span><%=item.square%>㎡</span></li>
+
+                <% if(item.property_type == 1){ %>
+                <li>类别：<span>住宅</span></li>
+                <%}%>
+                <% if(item.property_type == 2){ %>
+                <li>类别：<span>写字楼</span></li>
+                <%}%>
+
+                <li>物业费：<span><%=item.management_fee%>元/㎡*月</span></li>
+                <li class="fif-thr">地址：<span><%=item.estate_address%></span></li>
+            </ul>
+            <div class="fif-des-label clearfix">
+                <label class="gray">
+                    <a class="red">学区</a>
+                    <span class="graySchool"><%=item.schools%></span>
+                </label>
+                <label class="gray">
+                    <a class="blue">地铁</a>
+                    <span><%=item.subwaynum%>号线<%=item.subwaypath_length%>米</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="fyInfoWp mgY10 pd10 tb-bs"> <!-- 固定高度 -->
+        <div id="fyInfo-Tabs">
+            <ul>
+                <li><a href="#tabsList-1" class="tabulous_active" title="">房源描述</a></li>
+                <li><a href="#tabsList-2" title="">周边配套</a></li>
+                <li><a href="#tabsList-3" title="">交通路线</a></li>
+            </ul>
+            <div id="comTabs_container">
+                <div id="tabsList-1" class="cdiv fyList">
+                    <div class="com-tabs-wp">
+                        <%=item.property_desc%>
+                    </div>
+                </div>
+                <div id="tabsList-2" class="cdiv fyList">
+                    <div class="com-tabs-wp">
+                        <%=item.infrastructures%>
+                    </div>
+                </div>
+                <div id="tabsList-3"  class="cdiv fyList">
+                    <div class="com-tabs-wp">
+                        <%=item.transport_info%>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+[
+  {
+    "store_id": "ba1faa1-db3f-4fe5-bb17-8fe89a410492",
+    "parent_store_id": "998ae6e9-83a2-452e-a383-110e30de002b",
+    "store_name": "21世纪雅居乐(保利店)",
+    "display_name": "21世纪雅居乐(保利店)",
+    "store_wxid": "gh_f7b4ad13d434",
+    "store_type": 2,
+    "store_addr": "",
+    "contact_focal": null,
+    "contact_phone": "",
+    "store_desc": null,
+    "app_title": null,
+    "app_version": null,
+    "app_site": null,
+    "oss_site": null,
+    "oss_bucket": null,
+    "image_cname": null,
+    "image_dir": null,
+    "index_banner_images": "ba1faa1-db3f-4fe5-bb17-8fe89a410492/banners/20151211190528_416.jpg, ba1faa1-db3f-4fe5-bb17-8fe89a410492/banners/20151211190528_757.jpg, ba1faa1-db3f-4fe5-bb17-8fe89a410492/banners/20151211190528_254.jpg",
+    "delegate_banner_image": "",
+    "about_banner_image": "",
+    "branch_order": 8
+  }
+]

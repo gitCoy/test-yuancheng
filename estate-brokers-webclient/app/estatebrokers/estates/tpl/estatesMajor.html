@@ -1,0 +1,13 @@
+<%_.each(items,function(item) {%>
+<li><a href="#majorInfo/<%=item.estate_id%>">
+    <div class="fyBox">
+        <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+        <div class="fy-txt">
+            <h3><%=item.estate_name%></h3>
+            <div class="fy-price"><span><%=item.average_price%></span><%=item.price_unit%></div>
+            <p><span><%=item.onsales_count%></span>套在售&nbsp;<span><%=item.onrent_count%></span>套在租</p>
+            <p><%=item.post_address%></p>
+        </div>
+    </div>
+</a></li>
+<%})%>

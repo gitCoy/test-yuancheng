@@ -1,0 +1,20 @@
+<%_.each(items,function(item) {%>
+<li><a href="#aboutUsActive/<%=item.activity_id%>">
+    <div class="actBox">
+        <div class="act-img fl"><img src="<%=item.images_path%>"></div>
+        <div class="act-txt">
+            <h3><%=item.activity_title%></h3>
+
+            <h2 class="act-date"><%=item.activity_comments%></h2>
+
+            <p><%=item.activity_subtitle%></p>
+
+            <p>详询门店</p>
+        </div>
+    </div>
+</a></li>
+<%})%>
+
+
+
+

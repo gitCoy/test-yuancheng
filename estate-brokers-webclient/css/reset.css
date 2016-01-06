@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 { -webkit-text-size-adjust:none;}
+body { font-family:Arial, "微软雅黑"; font-size: 16px; background: #fff;}
+form, img, table, td { border:0;}
+ul, ol, li { list-style-type:none; display: block;}
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal;}
+input, textarea, img { vertical-align:middle; font-family:Arial, "Microsoft Yahei";}
+@media screen and (max-device-width: 320px) {body {-webkit-text-size-adjust:none}}
+@media screen and (max-device-width: 480px) {body {-webkit-text-size-adjust:none}}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {body {-webkit-text-size-adjust:none}}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {body {-webkit-text-size-adjust:none}}
+a { color:#039; text-decoration:none;}
+a:link { text-decoration:none;}
+a:visited { color:#999;}
+a:active { color:#507fbd;}
+a:hover { color:#507fbd;}
+
+/* font */
+.f12 { font-size:12px;}
+.f14 { font-size:14px;}
+.f16 { font-size:16px;}
+.f18 { font-size:18px;}
+.ti2 { text-indent:2em }
+
+/* box */
+.pd10{ padding: 10px;}
+.pdX10{ padding: 0 10px;}
+.pdY10{ padding: 10px 0;}
+.mgX10{ margin: 0 10px;}
+.mgY10{ margin: 10px 0;}
+.mt10{ margin-top: 10px !important;}
+.mt15{ margin-top: 15px !important;}
+.mt20{ margin-top: 20px !important;}
+.lh20{ line-height: 20px;}
+
+/* color */
+.fccc{ color: #ccc;}
+.f999{ color: #999;}
+.fgray { color:gray;}
+.f039,.fblue { color:#039;}
+.fgrn{ color: #16ac0e;}
+.ff60,.forge { color:#f60;}
+.ff90{ color: #f90;}
+.fc00{ color: #c00;}
+.f333{ color: #333;}
+
+/* fn */
+.clearfix:after{visibility:hidden; display:block; font-size:0; content:""; clear:both; height:0;}
+.clearfix{ *zoom: 1;}
+.center { text-align: center;}
+.none { display: none;}
+.flol { float: left;}
+.flor { float: right;}
+.rbox4{-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+.rbox6{ -webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;}
+input,textarea,button{ -webkit-appearance:none;}
+input[type="radio"]{ -webkit-appearance:radio;}
+input[type="checkbox"]{ -webkit-appearance:checkbox;}

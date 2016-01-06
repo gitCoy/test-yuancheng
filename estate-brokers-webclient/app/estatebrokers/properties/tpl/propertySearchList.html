@@ -1,0 +1,29 @@
+
+            <%_.each(items,function(item){%>
+            <li>
+                <%if(item.category == "PROP"){%>
+                    <a href="#userMyEntrust/<%=item.property_id%>">
+                <div class="actBox">
+                    <div class="act-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                    <div class="act-txt">
+                        <h3><%=item.property_title%></h3>
+                        <h2 class="act-date"><span><%=item.price%></span><%=item.price_unit%></h2>
+                        <p><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+                        <p><%=item.desc%></p>
+                    </div>
+                </div>
+            </a>
+                <%}else{%>
+                <a href="#majorInfo/<%=item.estate_id%>">
+                    <div class="actBox">
+                        <div class="act-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                        <div class="act-txt">
+                            <h3><%=item.title%></h3>
+                            <h2 class="act-date"><span><%=item.average_price%></span><%=item.price_unit%></h2>
+                            <p><%=item.address%></p>
+                            <p><%=item.desc%></p>
+                        </div>
+                    </div>
+                </a><%}%>
+            </li>
+            <%})%>

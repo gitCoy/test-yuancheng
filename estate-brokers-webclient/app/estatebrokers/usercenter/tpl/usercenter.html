@@ -1,0 +1,806 @@
+<!--convenienceShop.html-->
+<script type="text/template" id="tpl-convenienceShop">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>个人中心<span>&gt;</span>便民服务</p>
+        </div>
+    </div>
+    <div class="select-div">
+        <select id="estateList"></select>
+    </div>
+    <div class="act-containt" id="estateServer">
+
+    </div>
+    <div class="act-containt" id="allServer">
+        <div id="act-title"><span>全城优惠</span></div>
+        <div id="allServerList">
+
+        </div>
+    </div>
+    <div class="spance10"></div>
+</script>
+<!--majorUserCenter.html-->
+<script type="text/template" id="tpl-majorUserCenter">
+    <div class="perHeader" id="perHeader">
+    </div>
+
+    <div class="perSection bPER">
+        <div class="psWp">
+            <div class="ps-lp">
+                <div class="ps-lp-list">
+                    <a class="" href="#myentrust">
+                        <label style="background:#006699"><i class="iconfont">&#xe607;</i></label>
+                        <span>我的委托</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ps-lp mgY10">
+                <div class="ps-lp-list">
+                    <a class="" href="#myvillage">
+                        <label style="background:#99ccff"><i class="iconfont">&#xe610;</i></label>
+                        <span>我的小区</span>
+                    </a>
+                </div>
+                <div class="ps-lp-list">
+                    <a class="" href="#myhouseold">
+                        <label style="background:#66cccc"><i class="iconfont">&#xe604;</i></label>
+                        <span>我的二手房</span>
+                    </a>
+                </div>
+                <div class="ps-lp-list">
+                    <a class="" href="#myrental">
+                        <label style="background:#cc6600"><i class="iconfont">&#xe602;</i></label>
+                        <span>我的租房</span>
+                    </a>
+                </div>
+                <div class="ps-lp-list">
+                    <a class="" href="#mynewhouse">
+                        <label style="background:#009999"><i class="iconfont">&#xe613;</i></label>
+                        <span>我的新房</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ps-lp mgY10">
+                <div class="ps-lp-list">
+                    <a class="" href="#convenienceShop">
+                        <label style="background:#990033"><i class="iconfont">&#xe60b;</i></label>
+                        <span>便民服务</span>
+                    </a>
+                </div>
+                <div class="ps-lp-list">
+                    <a class="" href="#mytoolbox">
+                        <label style="background:#663300"><i class="iconfont">&#xe606;</i></label>
+                        <span>工具箱</span>
+                    </a>
+                </div>
+                <div class="ps-lp-list">
+                    <a class="" href="#mymicrochat">
+                        <label style="background:#993399"><i class="iconfont">&#xe608;</i></label>
+                        <span>聊天记录</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="perAd">
+        <div class="padWp wt-ad-Wp">
+            <a href="javascript:;"><img src="<%=item_deleImg.delegate_banner_image%>"></a>
+        </div>
+    </div>
+    <div class="spance10"></div>
+</script>
+<!--microchatcont.html-->
+<script type="text/template" id="tpl-microchatcont">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>个人中心<span>&gt;</span>聊天记录</p>
+        </div>
+    </div>
+    <div class="act-containt microchatList">
+        <div id="fyWrapper" style="top:84px;" class="tb-bs">
+            <div id="actScroller" class="act-conWp">
+                <div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span></div>
+
+                <ul id="chatHisList" class="act-list">
+                    <!--<li>-->
+                    <!--加载中……-->
+                    <!--</li>-->
+                </ul>
+
+                <div id="pullUp"><span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span></div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--microchatInfo.html-->
+<script type="text/template" id="tpl-microchatInfo">
+    <div class="weChat">
+        <div class="wcWp">
+            <div class="wcw-con">
+
+                <div id="fyWrapper" style="top:124px;">
+                    <div id="fyScroller" class="act-conWp tb-bs" style="border-bottom:0;">
+                        <ul id="weChat">
+                        </ul>
+                    </div>
+                </div>
+                <div class="wcw-dialog-footer clearfix" id="sendMsg">
+                <span class="wcw-dialog-textarea">
+                    <textarea class="wcw-input wcw-dialog-input" placeholder="输入文字与<%=item%>对话" placeholdertext="输入文字与小猪对话"></textarea>
+                </span>
+                <span class="wcw-dialog-sendBtn">
+                    <a href="javascript:void(0)">发送</a>
+                </span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</script>
+<!--myEntrust.html-->
+<script type="text/template" id="tpl-myEntrust">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>个人中心<span>&gt;</span>我的委托</p>
+        </div>
+    </div>
+
+    <div class="pubWt">
+        <div class="pubWp pdX10">
+            <div class="pub-wt-con">
+
+                <div class="pubWt-btn">
+                    <p>快速卖房、出租房，一键委托帮你忙</p>
+                    <div class="pubWt-btn-a"><a href="#delegate"><label>发布委托</label></a></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="myWt-list">
+        <div class="myWt-wp mgY10 pd10 tb-bs">
+            <div id="myWt-tabs">
+                <ul class="comUl">
+                    <li><a href="#tabsList-1" class="tabulous_active" title="">我的出租</a></li>
+                    <li><a href="#tabsList-2" title="">我的出售</a></li>
+                </ul>
+                <div id="comTabs_container">
+                    <div id="tabsList-1" class="cdiv myWt-list-ul">
+                        <div class="com-tabs-wp">
+                            <ul id="fyList_onrent" class="fy-list"></ul>
+                        </div>
+                    </div>
+                    <div id="tabsList-2" class="cdiv myWt-list-ul">
+                        <div class="com-tabs-wp">
+                            <ul id="fyList_onsale" class="fy-list"></ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        Zepto('#myWt-tabs').tabulous({
+            effect: 'scale'    //滑动方式  scale  slideLeft   scaleUp   flip
+        });
+    });
+</script>
+<!--myEntrustOnRent.html-->
+<script type="text/template" id="tpl-myEntrustOnRent">
+    <%_.each(itemsOnRent,function(item) {%>
+    <li><a href="javascript:;">
+        <div class="fyBox">
+            <div class="fy-img fl"><img src="<%=item.images_path[0]%>"></div>
+            <div class="fy-txt">
+                <h3><%=item.delegate_title%></h3>
+                <div class="fy-price"><span><%=item.price%></span>元</div>
+                <p><%=item.square%>㎡&nbsp;<%=item.room_info%></p>
+                <%if(item.follow_status == 1){%>
+                <p style="color:red;">跟进中...</p>
+                <%}else{%>
+                <p>暂未跟进!</p>
+                <%}%>
+            </div>
+        </div>
+    </a></li>
+    <%})%>
+</script>
+<!--myEntrustOnSale.html-->
+<script type="text/template" id="tpl-myEntrustOnSale">
+    <%_.each(itemsOnSale,function(item) {%>
+    <li><a href="javascript:;">
+        <div class="fyBox">
+            <div class="fy-img fl"><img src="<%=item.images_path[0]%>"></div>
+            <div class="fy-txt">
+                <h3><%=item.delegate_title%></h3>
+                <div class="fy-price"><span><%=item.price%></span>万</div>
+                <p><%=item.square%>㎡&nbsp;<%=item.room_info%></p>
+                <%if(item.follow_status == 1){%>
+                <p style="color:red;">跟进中...</p>
+                <%}else{%>
+                <p>暂未跟进!</p>
+                <%}%>
+            </div>
+        </div>
+    </a></li>
+    <%})%>
+</script>
+<!--myHouse.html-->
+<script type="text/template" id="tpl-myHouse">
+    <div class="fy-containt">
+        <div id="fyWrapper" class="tb-bs">
+            <div id="fyScroller" class="fy-conWp pdX10">
+                <!--<div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>-->
+                <ul id="fyList" class="fy-list">
+                    <%_.each(items,function(item) {%>
+                    <li><a href="#userMyEntrust/<%=item.property_id%>">
+                        <div class="fyBox">
+                            <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                            <div class="fy-txt">
+                                <h3><%=item.property_title%></h3>
+                                <div class="fy-price"><span><%=item.price%></span><%=item.price_unit%></div>
+                                <p><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+                                <p><%=item.estate_address%></p>
+                            </div>
+                        </div>
+                    </a></li>
+                    <%})%>
+                </ul>
+                <!--<div id="pullUp"> <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>-->
+            </div>
+
+        </div>
+    </div>
+</script>
+<!--myToolbox.html-->
+<script type="text/template" id="tpl-myToolbox">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>个人中心<span>&gt;</span>购房贷款计算器</p>
+        </div>
+    </div>
+
+    <div class="fixContent tb-bs">
+        <div class="fcWp">
+            <div id="comTabs" class="comTabs">
+                <ul class="toolboxUltop">
+                    <li><a href="#tabsList-1" data-val="0" class="tabulous_active" title="">商业贷款</a></li>
+                    <li><a href="#tabsList-2" data-val="1" title="">公积金贷款</a></li>
+                    <li><a href="#tabsList-3" data-val="2" title="">组合贷款</a></li>
+                    <li><a href="#tabsList-4" data-val="3" title="">购房能力评估</a></li>
+                </ul>
+                <div id="comTabs_container">
+                    <div id="tabsList-1" class="cdiv comList hidescale showscale">
+                        <section class="calculater-wp">
+                            <div class="calculator">
+                                <section class="com-dl-style">
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>还款方式:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt hkfs'><a href="javascript:;"><span data-val="0">等额本息</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="0">等额本息</span></li>
+                                                    <li><span data-val="1">等额本金</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>按揭年数:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt ajns'><a href="javascript:;"><span data-val="1">1年（12期）</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="1">1年（12期）</span></li>
+                                                    <li><span data-val="2">2年（24期）</span></li>
+                                                    <li><span data-val="3">3年（36期）</span></li>
+                                                    <li><span data-val="4">4年（48期）</span></li>
+                                                    <li><span data-val="5">5年（60期）</span></li>
+                                                    <li><span data-val="6">6年（72期）</span></li>
+                                                    <li><span data-val="7">7年（84期）</span></li>
+                                                    <li><span data-val="8">8年（96期）</span></li>
+                                                    <li><span data-val="9">9年（108期）</span></li>
+                                                    <li><span data-val="10">10年（120期）</span></li>
+                                                    <li><span data-val="11">11年（132期）</span></li>
+                                                    <li><span data-val="12">12年（144期）</span></li>
+                                                    <li><span data-val="13">13年（156期）</span></li>
+                                                    <li><span data-val="14">14年（168期）</span></li>
+                                                    <li><span data-val="15">15年（180期）</span></li>
+                                                    <li><span data-val="16">16年（192期）</span></li>
+                                                    <li><span data-val="17">17年（204期）</span></li>
+                                                    <li><span data-val="18">18年（216期）</span></li>
+                                                    <li><span data-val="19">19年（228期）</span></li>
+                                                    <li><span data-val="20">20年（240期）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>按揭利率:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt ajll'><a href="javascript:;"><span data-val="0">15年10月24日基准利率</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="0">15年10月24日基准利率</span></li>
+                                                    <li><span data-val="1">15年10月24日基准利率下限（7折）</span></li>
+                                                    <li><span data-val="2">15年10月24日基准利率下限（8.5折）</span></li>
+                                                    <li><span data-val="3">15年10月24日基准利率上限（1.1倍）</span></li>
+                                                    <li><span data-val="4">15年8月26日基准利率</span></li>
+                                                    <li><span data-val="5">15年8月26日基准利率下限（7折）</span></li>
+                                                    <li><span data-val="6">15年8月26日基准利率下限（8.5折）</span></li>
+                                                    <li><span data-val="7">15年8月26日基准利率上限（1.1倍）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">&nbsp;</span>计算方式:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt jsfs'><a href="javascript:;"><span data-val="0">根据面积、单价计算</span></a></div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list select_countStyle'>
+                                                    <li class="countAreaSy"><span data-val="0">根据面积、单价计算</span></li>
+                                                    <li class="countTotalSy"><span data-val="1">根据贷款总额计算</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </section>
+                                <section class="select_jsfs">
+                                    <section class="countStyle com-dl-style make_transist hidescale showscale" id="countAreaSyshow">
+                                        <dl class="cal-sor clearfix liWidth-100">
+                                            <dt><span class="impor">*</span>按揭成数:</dt>
+                                            <dd>
+                                                <div class="cal-inp-s diy_select">
+                                                    <input type="hidden" name="" class="diy_select_input">
+                                                    <div class='diy_select_txt ajcs'><a href="javascript:;"><span data-val="2">2成</span></a> </div>
+                                                    <div class='diy_select_btn'></div>
+                                                    <ul class='diy_select_list'>
+                                                        <li><span data-val="2">2成</span></li>
+                                                        <li><span data-val="3">3成</span></li>
+                                                        <li><span data-val="4">4成</span></li>
+                                                        <li><span data-val="5">5成</span></li>
+                                                        <li><span data-val="6">6成</span></li>
+                                                        <li><span data-val="7">7成</span></li>
+                                                        <li><span data-val="8">8成</span></li>
+                                                        <li><span data-val="9">9成</span></li>
+                                                    </ul>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl class="clearfix">
+                                            <dt><span class="impor">&nbsp;</span>单<span style="margin:0 1em;"></span>价:</dt>
+                                            <dd>
+                                                <div>
+                                                    <input type="text" class="sy_gjj_price ipt-txt-t ipt-txt-zInd" placeholder="请输入单价">
+                                                    <i>元/平米</i>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl class="clearfix">
+                                            <dt><span class="impor">&nbsp;</span>面<span style="margin:0 1em;"></span>积:</dt>
+                                            <dd>
+                                                <div class="cal-inp-s">
+                                                    <input type="text" class="sy_gjj_area ipt-txt ipt-txt-zInd" placeholder="请输入面积">
+                                                    <i>平米</i>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </section>
+                                    <section class="countStyle com-dl-style make_transist hidescale" id="countTotalSyshow">
+                                        <dl class="clearfix">
+                                            <dt><span class="impor">&nbsp;</span>贷款总额:</dt>
+                                            <dd>
+                                                <div class="cal-inp-s">
+                                                    <input type="text" class="sy_gjj_dkze ipt-txt ipt-txt-zInd" placeholder="请输入贷款总额">
+                                                    <i>元</i>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </section>
+                                </section>
+                            </div>
+
+                            <div class="calculator-btn"><a href="javascript:void(0);" onclick="init_sydk();">开始计算</a></div>
+                        </section>
+                    </div>
+                    <div id="tabsList-2" class="cdiv comList">
+                        <section class="calculater-wp">
+                            <div class="calculator">
+                                <section class="com-dl-style">
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>还款方式:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt hkfs'><a href="javascript:;"><span data-val="0">等额本息</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="0">等额本息</span></li>
+                                                    <li><span data-val="1">等额本金</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>按揭年数:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt ajns'><a href="javascript:;"><span data-val="1">1年（12期）</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="1">1年（12期）</span></li>
+                                                    <li><span data-val="2">2年（24期）</span></li>
+                                                    <li><span data-val="3">3年（36期）</span></li>
+                                                    <li><span data-val="4">4年（48期）</span></li>
+                                                    <li><span data-val="5">5年（60期）</span></li>
+                                                    <li><span data-val="6">6年（72期）</span></li>
+                                                    <li><span data-val="7">7年（84期）</span></li>
+                                                    <li><span data-val="8">8年（96期）</span></li>
+                                                    <li><span data-val="9">9年（108期）</span></li>
+                                                    <li><span data-val="10">10年（120期）</span></li>
+                                                    <li><span data-val="11">11年（132期）</span></li>
+                                                    <li><span data-val="12">12年（144期）</span></li>
+                                                    <li><span data-val="13">13年（156期）</span></li>
+                                                    <li><span data-val="14">14年（168期）</span></li>
+                                                    <li><span data-val="15">15年（180期）</span></li>
+                                                    <li><span data-val="16">16年（192期）</span></li>
+                                                    <li><span data-val="17">17年（204期）</span></li>
+                                                    <li><span data-val="18">18年（216期）</span></li>
+                                                    <li><span data-val="19">19年（228期）</span></li>
+                                                    <li><span data-val="20">20年（240期）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>按揭利率:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt ajll'><a href="javascript:;"><span data-val="0">15年10月24日基准利率</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="0">15年10月24日基准利率</span></li>
+                                                    <li><span data-val="1">15年10月24日基准利率下限（7折）</span></li>
+                                                    <li><span data-val="2">15年10月24日基准利率下限（8.5折）</span></li>
+                                                    <li><span data-val="3">15年10月24日基准利率上限（1.1倍）</span></li>
+                                                    <li><span data-val="4">15年8月26日基准利率</span></li>
+                                                    <li><span data-val="5">15年8月26日基准利率下限（7折）</span></li>
+                                                    <li><span data-val="6">15年8月26日基准利率下限（8.5折）</span></li>
+                                                    <li><span data-val="7">15年8月26日基准利率上限（1.1倍）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">&nbsp;</span>计算方式:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt jsfs'><a href="javascript:;"><span data-val="0">根据面积、单价计算</span></a></div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list select_countStyle'>
+                                                    <li class="countAreaGjj"><span data-val="0">根据面积、单价计算</span></li>
+                                                    <li class="countTotalGjj"><span data-val="1">根据贷款总额计算</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </section>
+                                <section class="select_jsfs">
+                                    <section class="countStyle com-dl-style make_transist hidescale showscale" id="countAreaGjjshow">
+                                        <dl class="cal-sor clearfix liWidth-100">
+                                            <dt><span class="impor">*</span>按揭成数:</dt>
+                                            <dd>
+                                                <div class="cal-inp-s diy_select">
+                                                    <input type="hidden" name="" class="diy_select_input">
+                                                    <div class='diy_select_txt ajcs'><a href="javascript:;"><span data-val="2">2成</span></a> </div>
+                                                    <div class='diy_select_btn'></div>
+                                                    <ul class='diy_select_list'>
+                                                        <li><span data-val="2">2成</span></li>
+                                                        <li><span data-val="3">3成</span></li>
+                                                        <li><span data-val="4">4成</span></li>
+                                                        <li><span data-val="5">5成</span></li>
+                                                        <li><span data-val="6">6成</span></li>
+                                                        <li><span data-val="7">7成</span></li>
+                                                        <li><span data-val="8">8成</span></li>
+                                                        <li><span data-val="9">9成</span></li>
+                                                    </ul>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl class="clearfix">
+                                            <dt><span class="impor">&nbsp;</span>单<span style="margin:0 1em;"></span>价:</dt>
+                                            <dd>
+                                                <div>
+                                                    <input type="text" class="sy_gjj_price ipt-txt-t ipt-txt-zInd" placeholder="请输入单价">
+                                                    <i>元/平米</i>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl class="clearfix">
+                                            <dt><span class="impor">&nbsp;</span>面<span style="margin:0 1em;"></span>积:</dt>
+                                            <dd>
+                                                <div class="cal-inp-s">
+                                                    <input type="text" class="sy_gjj_area ipt-txt ipt-txt-zInd" placeholder="请输入面积">
+                                                    <i>平米</i>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </section>
+                                    <section class="countStyle com-dl-style make_transist hidescale" id="countTotalGjjshow">
+                                        <div>
+                                            <dl class="clearfix">
+                                                <dt><span class="impor">&nbsp;</span>贷款总额:</dt>
+                                                <dd>
+                                                    <div class="cal-inp-s">
+                                                        <input type="text" class="sy_gjj_dkze ipt-txt ipt-txt-zInd" placeholder="请输入贷款总额">
+                                                        <i>元</i>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
+
+                            <div class="calculator-btn"><a href="javascript:void(0);" onclick="init_sydk();">开始计算</a></div>
+                        </section>
+                    </div>
+                    <div id="tabsList-3"  class="cdiv comList">
+                        <section class="calculater-wp">
+                            <div class="calculator">
+                                <section class="com-dl-style">
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>还款方式:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt hkfs'><a href="javascript:;"><span data-val="0">等额本息</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="0">等额本息</span></li>
+                                                    <li><span data-val="1">等额本金</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>按揭年数:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt ajns'><a href="javascript:;"><span data-val="1">1年（12期）</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="1">1年（12期）</span></li>
+                                                    <li><span data-val="2">2年（24期）</span></li>
+                                                    <li><span data-val="3">3年（36期）</span></li>
+                                                    <li><span data-val="4">4年（48期）</span></li>
+                                                    <li><span data-val="5">5年（60期）</span></li>
+                                                    <li><span data-val="6">6年（72期）</span></li>
+                                                    <li><span data-val="7">7年（84期）</span></li>
+                                                    <li><span data-val="8">8年（96期）</span></li>
+                                                    <li><span data-val="9">9年（108期）</span></li>
+                                                    <li><span data-val="10">10年（120期）</span></li>
+                                                    <li><span data-val="11">11年（132期）</span></li>
+                                                    <li><span data-val="12">12年（144期）</span></li>
+                                                    <li><span data-val="13">13年（156期）</span></li>
+                                                    <li><span data-val="14">14年（168期）</span></li>
+                                                    <li><span data-val="15">15年（180期）</span></li>
+                                                    <li><span data-val="16">16年（192期）</span></li>
+                                                    <li><span data-val="17">17年（204期）</span></li>
+                                                    <li><span data-val="18">18年（216期）</span></li>
+                                                    <li><span data-val="19">19年（228期）</span></li>
+                                                    <li><span data-val="20">20年（240期）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">*</span>按揭利率:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt ajll'><a href="javascript:;"><span data-val="0">15年10月24日基准利率</span></a> </div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="0">15年10月24日基准利率</span></li>
+                                                    <li><span data-val="1">15年10月24日基准利率下限（7折）</span></li>
+                                                    <li><span data-val="2">15年10月24日基准利率下限（8.5折）</span></li>
+                                                    <li><span data-val="3">15年10月24日基准利率上限（1.1倍）</span></li>
+                                                    <li><span data-val="4">15年8月26日基准利率</span></li>
+                                                    <li><span data-val="5">15年8月26日基准利率下限（7折）</span></li>
+                                                    <li><span data-val="6">15年8月26日基准利率下限（8.5折）</span></li>
+                                                    <li><span data-val="7">15年8月26日基准利率上限（1.1倍）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </section>
+                                <section class="com-dl-style">
+                                    <dl class="clearfix">
+                                        <dt><span class="impor">&nbsp;</span>商业贷款:</dt>
+                                        <dd>
+                                            <div>
+                                                <input type="text" class="zhdk_sy ipt-txt-t ipt-txt-zInd" placeholder="请输入贷款额度">
+                                                <i>元</i>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="clearfix">
+                                        <dt><span class="impor">&nbsp;</span>公积金贷款:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s">
+                                                <input type="text" class="zhdk_gjj ipt-txt ipt-txt-zInd" placeholder="请输入贷款额度">
+                                                <i>元</i>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </section>
+                            </div>
+
+                            <div class="calculator-btn"><a href="javascript:void(0);" onclick="init_zh();">开始计算</a></div>
+                        </section>
+                    </div>
+                    <div id="tabsList-4" class="cdiv comList">
+                        <div class="com-tabs-wp">
+                            <section class="calculater-wp">
+                                <div class="calculator">
+
+                                    <dl class="clearfix">
+                                        <dt><span class="impor">*</span>购房资金:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s">
+                                                <input type="text" class="gfzj ipt-txt ipt-txt-zInd" placeholder="可用于购房的资金总和">
+                                                <i>元</i>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="cal-sor clearfix liWidth-100">
+                                        <dt><span class="impor">&nbsp;</span>贷款年限:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s diy_select">
+                                                <input type="hidden" name="" class="diy_select_input">
+                                                <div class='diy_select_txt dkns'><a href="javascript:;"><span data-val="1">1年（12期）</span></a></div>
+                                                <div class='diy_select_btn'></div>
+                                                <ul class='diy_select_list'>
+                                                    <li><span data-val="1">1年（12期）</span></li>
+                                                    <li><span data-val="2">2年（24期）</span></li>
+                                                    <li><span data-val="3">3年（36期）</span></li>
+                                                    <li><span data-val="4">4年（48期）</span></li>
+                                                    <li><span data-val="5">5年（60期）</span></li>
+                                                    <li><span data-val="6">6年（72期）</span></li>
+                                                    <li><span data-val="7">7年（84期）</span></li>
+                                                    <li><span data-val="8">8年（96期）</span></li>
+                                                    <li><span data-val="9">9年（108期）</span></li>
+                                                    <li><span data-val="10">10年（120期）</span></li>
+                                                    <li><span data-val="11">11年（132期）</span></li>
+                                                    <li><span data-val="12">12年（144期）</span></li>
+                                                    <li><span data-val="13">13年（156期）</span></li>
+                                                    <li><span data-val="14">14年（168期）</span></li>
+                                                    <li><span data-val="15">15年（180期）</span></li>
+                                                    <li><span data-val="16">16年（192期）</span></li>
+                                                    <li><span data-val="17">17年（204期）</span></li>
+                                                    <li><span data-val="18">18年（216期）</span></li>
+                                                    <li><span data-val="19">19年（228期）</span></li>
+                                                    <li><span data-val="20">20年（240期）</span></li>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="clearfix">
+                                        <dt><span class="impor">*</span>家庭月收入:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s">
+                                                <input type="text" class="jtysr ipt-txt ipt-txt-zInd" placeholder="现家庭月收入">
+                                                <i>元</i>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="clearfix">
+                                        <dt><span class="impor">*</span>购房支出:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s">
+                                                <input type="text" class="gfzc ipt-txt ipt-txt-zInd" placeholder="预计家庭每月可用于购房支出">
+                                                <i>元</i>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <dl class="clearfix">
+                                        <dt><span class="impor">&nbsp;</span>房屋面积:</dt>
+                                        <dd>
+                                            <div class="cal-inp-s">
+                                                <input type="text" class="fwmj ipt-txt ipt-txt-zInd" placeholder="请输入面积">
+                                                <i>平方米</i>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+
+                                <div class="calculator-btn"><a href="javascript:void(0);" onclick="init_gfnlpg();">开始计算</a></div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="toolBoxShade">
+
+    </div>
+</script>
+<!--myVillage.html-->
+<script type="text/template" id="tpl-myVillage">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>个人中心<span>&gt;</span>我的小区</p>
+        </div>
+    </div>
+
+    <div class="fy-containt">
+        <div id="fyWrapper" class="tb-bs">
+            <div id="fyScroller" class="fy-conWp pdX10">
+                <!--<div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>-->
+                <ul id="fyList" class="fy-list">
+                    <%_.each(items,function(item) {%>
+                    <li class="pdY10"><a href="#majorInfo/<%=item.estate_id%>">
+                        <div class="fyBox">
+                            <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                            <div class="fy-txt">
+                                <h3><%=item.estate_name%></h3>
+                                <div class="fy-price"><span><%=item.average_price%></span><%=item.price_unit%></div>
+                                <p><span><%=item.onsales_count%></span>套在售&nbsp;<span><%=item.onrent_count%></span>套在租</p>
+                                <p><%=item.post_address%></p>
+                            </div>
+                        </div>
+                    </a></li>
+                    <%})%>
+
+                </ul>
+                <!--<div id="pullUp"> <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>-->
+            </div>
+
+        </div>
+    </div>
+</script>
+<!--navigateBar.html-->
+<script type="text/template" id="tpl-navigateBar">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>个人中心<span>&gt;</span><%=dtitle%></p>
+        </div>
+    </div>
+</script>
+<!--userCenterTop.html-->
+<script type="text/template" id="tpl-userCenterTop">
+    <div class="phWp">
+        <div class="ph-pic"><img src="<%=items.uHead%>">
+        </div>
+        <div class="ph-name">
+            <p><%=items.uName %></p>
+        </div>
+    </div>
+</script>

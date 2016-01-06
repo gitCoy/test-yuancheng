@@ -1,0 +1,28 @@
+<div class="selectTab">
+    <div id="mask" style="display: none;"></div>
+    <div class="stWp bBS tb-bs">
+        <form>
+            <div class="stWp-xq-con flexbox">
+                <div class="st-box diy_select selected">
+                    <input type="hidden" name="" class="diy_select_input">
+                    <div class='diy_select_txt diy_select_usual'><a href="javascript:;" class="diy_select_label">默认</a></div>
+                    <div class='diy_select_btn'></div>
+                    <ul class='diy_select_list diy_list_usual'>
+                    </ul>
+                </div>
+                <%_.each(items,function(item) {%>
+                    <div class="st-box diy_select">
+                        <input type="hidden" name="<%=item.name%>" class="diy_select_input">
+                        <div class='diy_select_txt' data-default="<%=item.label%>"><a href="javascript:;" class="diy_select_label"><%=item.label%></a></div>
+                        <div class='diy_select_btn'></div>
+                        <ul class='diy_select_list'>
+                            <%for(var i = 0,vals = item.values; i < vals.length; i ++){%>
+                                <li data-val="<%=vals[i].key%>"><%=vals[i].val%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                <%})%>
+            </div>
+        </form>
+    </div>
+</div>

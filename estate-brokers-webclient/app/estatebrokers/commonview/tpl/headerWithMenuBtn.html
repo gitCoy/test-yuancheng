@@ -1,0 +1,19 @@
+<div class="header">
+    <div class="hdWp pdX10">
+        <div class="hd-menu" id="menuBtn"><a href="javascript:;" id="menuBtnA"><i class="iconfont">&#xe60f;</i> </a></div>
+        <div class="hd-tit">
+            <%if(storMenu == 1){%>
+            <a class="storeTitle"><span><%=title%></span><label></label></a>
+            <%}else{%>
+            <span><%=title%></span>
+            <%}%>
+        </div>
+    </div>
+</div>
+<div id="storeName">
+    <ul>
+        <%_.each(stores,function(item) {%>
+        <li storIdVal="<%=item.store_id%>"><%=item.store_name%></li>
+        <%})%>
+    </ul>
+</div>

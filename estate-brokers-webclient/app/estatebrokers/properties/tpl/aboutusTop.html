@@ -1,0 +1,34 @@
+<div class="cj-prosp">
+    <div class="cjpWp pdX10">
+        <h3 class="pdY10 storeDesc"><%=items.store_desc%></h3>
+        <div class="cjp-list clearfix">
+            <div class="cjp-logo fl"><a href="#aboutPublic">成交喜报</a></div>
+            <div class="cjp-news-list" id="gladMessage">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="perAd aboutUsPerAd pdY10">
+    <div class="padWp pdX10 floor2">
+        <a href="javascript:;"><img src="<%=items.about_banner_image%>"></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        /*======next======*/
+        var indexLi = $(".cjp-news-list a").length;
+        if(indexLi > 2){
+            setInterval(function(){nextscroll()},3000);
+        }
+        function nextscroll() {
+            var vcon = $(".cjp-news-list ");
+            var offset = ($(".cjp-news-list a").height()) * -1;
+            vcon.animate({top: offset}, "slow", function () {
+                var firstItem = $(".cjp-news-list a").first();
+                vcon.append(firstItem);
+                $(this).css("top", "0px");
+            });
+        };
+    })
+</script>

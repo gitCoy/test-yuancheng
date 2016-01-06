@@ -1,0 +1,50 @@
+<div class="perPosition">
+    <div class="ppWp pd10">
+        <p>个人中心<span>&gt;</span>我的委托</p>
+    </div>
+</div>
+
+<div class="pubWt">
+    <div class="pubWp pdX10">
+        <div class="pub-wt-con">
+
+            <div class="pubWt-btn">
+                <p>快速卖房、出租房，一键委托帮你忙</p>
+                <div class="pubWt-btn-a"><a href="#delegate"><label>发布委托</label></a></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="myWt-list">
+    <div class="myWt-wp mgY10 pd10 tb-bs">
+        <div id="myWt-tabs">
+            <ul class="comUl">
+                <li><a href="#tabsList-1" class="tabulous_active" title="">我的出租</a></li>
+                <li><a href="#tabsList-2" title="">我的出售</a></li>
+            </ul>
+            <div id="comTabs_container">
+                <div id="tabsList-1" class="cdiv myWt-list-ul">
+                    <div class="com-tabs-wp">
+                        <ul id="fyList_onrent" class="fy-list"></ul>
+                    </div>
+                </div>
+                <div id="tabsList-2" class="cdiv myWt-list-ul">
+                    <div class="com-tabs-wp">
+                        <ul id="fyList_onsale" class="fy-list"></ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        Zepto('#myWt-tabs').tabulous({
+            effect: 'scale'    //滑动方式  scale  slideLeft   scaleUp   flip
+        });
+    });
+</script>

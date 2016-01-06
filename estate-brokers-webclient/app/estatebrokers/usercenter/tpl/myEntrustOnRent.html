@@ -1,0 +1,17 @@
+<%_.each(itemsOnRent,function(item) {%>
+<li><a href="javascript:;">
+    <div class="fyBox">
+        <div class="fy-img fl"><img src="<%=item.images_path[0]%>"></div>
+        <div class="fy-txt">
+            <h3><%=item.delegate_title%></h3>
+            <div class="fy-price"><span><%=item.price%></span>元</div>
+            <p><%=item.square%>㎡&nbsp;<%=item.room_info%></p>
+            <%if(item.follow_status == 1){%>
+            <p style="color:red;">跟进中...</p>
+            <%}else{%>
+            <p>暂未跟进!</p>
+            <%}%>
+        </div>
+    </div>
+</a></li>
+<%})%>

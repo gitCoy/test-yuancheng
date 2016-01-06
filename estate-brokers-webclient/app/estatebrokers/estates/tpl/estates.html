@@ -1,0 +1,225 @@
+<!--estateCategory.html-->
+<script type="text/template" id="tpl-estateCategory">
+    <div class="selectFy">
+        <div class="sfWp mgY10 pdX10">
+            <ul class="clearfix">
+                <li class="cf-a sf-box fl">
+                    <a href="#houseOnline">
+                        <div class="sfb-img"><i class="iconfont">&#xe613;</i></div>
+                        <div class="sfb-txt">最新房源</div>
+                    </a>
+                </li>
+
+                <li class="cf-b sf-box fl">
+                    <a href="#houseAnxious">
+                        <div class="sfb-img"><i class="iconfont">&#xe607;</i></div>
+                        <div class="sfb-txt">急售房源</div>
+                    </a>
+                </li>
+
+                <li class="cf-c sf-box fl">
+                    <a href="#houseUrgent">
+                        <div class="sfb-img"><i class="iconfont">&#xe602;</i></div>
+                        <div class="sfb-txt">租房</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="shortFy">
+        <div class="shfWp clearfix" id="hotTabs">
+        </div>
+    </div>
+    <div class="spance10"></div>
+</script>
+<!--estateContainer.html-->
+<script type="text/template" id="tpl-estateContainer">
+    <div class="fy-containt">
+        <div id="fyWrapper">
+            <div id="fyScroller" class="fy-conWp pdX10">
+                <ul id="fyList" class="fy-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+<!--estateInfoHouseContainer.html-->
+<script type="text/template" id="tpl-estateInfoHouseCont">
+    <div id="xqList">
+        <div class="xqlWp mgY10 pd10 tb-bs">
+            <div id="xql-tabs">
+                <ul class="comUl">
+                    <li><a href="#tabsList-1" class="tabulous_active" title="">房源量(<span id="property_all"><%=item.property_all%></span>)</a></li>
+                    <li><a href="#tabsList-2" title="">出售(<span id="onsales_count"><%=item.onsales_count%></span>)</a></li>
+                    <li><a href="#tabsList-3" title="">出租(<span id="onrent_count"><%=item.onrent_count%></span>)</a></li>
+                    <li id="around_estate"><a href="#tabsList-4" title="">周边小区(<span id="around_count"><%=item.around_count%></span>)</a></li>
+                </ul>
+                <div id="comTabs_container" style="height: 510px;">
+                    <div id="tabsList-1" class="cdiv xql-list" style="position: absolute; top: 0px;">
+                        <div class="com-tabs-wp">
+                            <ul id="tabsContainer_onProp" class="fy-list">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tabsList-2" class="cdiv xql-list hidescale" style="position: absolute; top: 0px;">
+                        <div class="com-tabs-wp">
+                            <ul id="tabsContainer_onSale" class="fy-list">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tabsList-3" class="cdiv xql-list hidescale" style="position: absolute; top: 0px;">
+                        <div class="com-tabs-wp">
+                            <ul id="tabsContainer_onRent" class="fy-list">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tabsList-4" class="cdiv xql-list hidescale" style="position: absolute; top: 0px;">
+                        <div class="com-tabs-wp">
+                            <ul id="tabsContainer_onAmbitus" class="fy-list">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--estateInfoHouseList.html-->
+<script type="text/template" id="tpl-estateInfoHouseList">
+    <%_.each(items, function(item) {%>
+    <li><a href="#userMyEntrust/<%=item.property_id%>">
+        <div class="fyBox">
+            <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+            <div class="fy-txt">
+                <h3><%=item.property_title%></h3>
+
+                <div class="fy-price"><span><%=item.price%></span><%=item.price_unit%></div>
+                <p><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+
+                <p><%=item.estate_address%></p>
+            </div>
+        </div>
+    </a></li>
+    <%})%>
+</script>
+<!--estateMajorInfo.html-->
+<script type="text/template" id="tpl-estateMajorInfo">
+    <div class="fyInformation">
+        <div class="fyInfoWp mgY10 tb-bs">
+            <div class="fif-des pd10">
+                <h3><%=item.estate_name%></h3>
+                <ul class="fif-des-list clearfix">
+                    <li class="fif-thr">均价：<strong><%=item.average_price%></strong><span><%=item.price_unit%></span></li>
+                    <li class="fif-thr">地址：<span><%=item.post_address%></span></li>
+                    <li>类别：<span><%=item.estate_type%></span></li>
+                    <li>物业费：<span><%=item.management_fee%>元/㎡*月</span></li>
+                    <li class="fif-thr">户型：<a href="javascript:;"><%=item.room_info_1[0]%><%=item.room_info_1[1]%></a><a href="javascript:;"><%=item.room_info_2[0]%><%=item.room_info_2[1]%></a><a href="javascript:;"><%=item.room_info_3[0]%><%=item.room_info_3[1]%></a><a href="javascript:;"><%=item.room_info_4[0]%><%=item.room_info_4[1]%></a></li>
+                </ul>
+                <div class="fif-des-label clearfix">
+                    <%if(item.schools != ""){%>
+                    <label class="gray">
+                        <a class="red">学区</a>
+                        <span><%=item.schools%></span>
+                    </label>
+                    <%}if(item.subwaynum != "" && item.subwaypath_length != ""){%>
+                    <label class="gray">
+                        <a class="blue">地铁</a>
+                        <span><%=item.subwaynum%>号线<%=item.subwaypath_length%>米</span>
+                    </label>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--estatesMajor.html-->
+<script type="text/template" id="tpl-estatesMajor">
+    <%_.each(items,function(item) {%>
+    <li><a href="#majorInfo/<%=item.estate_id%>">
+        <div class="fyBox">
+            <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+            <div class="fy-txt">
+                <h3><%=item.estate_name%></h3>
+                <div class="fy-price"><span><%=item.average_price%></span><%=item.price_unit%></div>
+                <p><span><%=item.onsales_count%></span>套在售&nbsp;<span><%=item.onrent_count%></span>套在租</p>
+                <p><%=item.post_address%></p>
+            </div>
+        </div>
+    </a></li>
+    <%})%>
+</script>
+<!--majorEstate.html-->
+<script type="text/template" id="tpl-majorEstate">
+    <div class="nav-menu clearfix">
+        <h3 class="fl"><a href="#estateMajor">主营小区</a></h3>
+        <div id="nav-smartSetup">
+            <ul>
+                <% var index = 0; _.each(items,function(item) { index++;%>
+                <li id="<%=item.estate_id%>" onClick="setTab('<%=index%>')"><a class href="javascript:void(0);"><%=item.estate_name%></a></li>
+                <%})%>
+            </ul>
+            <a class="ui-navigator-fixright" onclick="" href="javascript:;">
+                <i class="iconfont">&#xe615;</i>
+            </a>
+        </div>
+    </div>
+
+    <div id="majorEstate">
+        <div class="swipe-wrap">
+            <% _.each(items,function(item,num) { %>
+            <div class="major-cell" id="brief_<%=item.estate_id%>">
+                <a href="#majorInfo/<%=item.estate_id%>">
+                    <div class="nmi-img fl">
+                        <%if(num == 0){%>
+                        <img src="<%=item.imgPathFirst%>">
+                        <%}else{%>
+                        <img class="lazy-loaded" data-imgsrc="<%=item.imgPathFirst%>" src="images/default-load.jpg">
+                        <%}%></div>
+                    <div class="nmi-txt fl">
+                        <div class="tc-num"><strong><%=item.average_price%></strong>元/m<sup>2</sup></div>
+                        <p><%=item.onsales_count%>套在售</p>
+                        <p><%=item.onrent_count%>套在租</p>
+                        <%if(item.schools != ""){%>
+                        <label class="l0c5"><%=item.schools%></label>
+                        <%}if(item.subwaynum != "" && item.subwaypath_length != ""){%>
+                        <label class="lf04"><%=item.subwaynum%><%=item.subwaypath_length%></label>
+                        <%}%>
+                    </div>
+                </a>
+            </div>
+            <%})%>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var navi = Zepto('#nav-smartSetup').navigator();
+
+        var links = $("#nav-smartSetup ul li");
+        var links_len=links.length;
+
+        function setTab(pos){
+            majorEstateSwipe.slide(pos-1);
+        }
+
+
+        function setTabIndex(index){
+            if(!links[index]) return;
+            var _id = links[index].id;
+            var menu = document.getElementById(_id);
+            var menudiv = document.getElementById("brief_"+_id);
+            menu.className="off";
+
+        }
+        setTabIndex(0);
+    </script>
+</script>
+<!--majorEstateContainer.html-->
+<script type="text/template" id="tpl-majorEstateContainer">
+    <div class="plotTab">
+        <div class="ptWp tabPanel" id="homeTab">
+        </div>
+    </div>
+</script>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+@media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone 6 */
+.class{}
+}
+@media (device-width:414px) and (-webkit-min-device-pixel-ratio:3.0){/* 兼容iphone6 plus */
+.class{}
+}
+
+@media all and (min-width: 640px) {
+.mmenu.mmenu-horizontal {
+	width: 5000px;
+}
+.mmenu-right .mmenu.mmenu-horizontal {
+	left: auto;
+	right: -4500px;
+}
+.mmenu-left.mmenu-opening .mmenu-page, .mmenu-left.mmenu-opening #mmenu-blocker {
+	left: 500px;
+}
+}
+
+@media screen and (max-width:320px){
+.mm-listview > li.hd-per-li a{padding-left:10px;}
+.mm-listview > li > a, .mm-listview > li > span{padding: 8px 10px 8px 20px;}
+.tc-num strong{font-size:18px; font-weight:normal; color:#ea3637;}
+.tc-num{font-size:12px;}
+.nmi-txt p{font-size:14px; line-height:16px;}
+
+}

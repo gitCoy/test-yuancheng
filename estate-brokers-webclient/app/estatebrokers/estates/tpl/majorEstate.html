@@ -1,0 +1,63 @@
+<div class="nav-menu clearfix">
+    <h3 class="fl"><a href="#estateMajor">主营小区</a></h3>
+    <div id="nav-smartSetup">
+        <ul>
+            <% var index = 0; _.each(items,function(item) { index++;%>
+            <li id="<%=item.estate_id%>" onClick="setTab('<%=index%>')"><a class href="javascript:void(0);"><%=item.estate_name%></a></li>
+            <%})%>
+        </ul>
+        <a class="ui-navigator-fixright" onclick="" href="javascript:;">
+            <i class="iconfont">&#xe615;</i>
+        </a>
+    </div>
+</div>
+
+<div id="majorEstate">
+    <div class="swipe-wrap">
+        <% _.each(items,function(item,num) { %>
+        <div class="major-cell" id="brief_<%=item.estate_id%>">
+            <a href="#majorInfo/<%=item.estate_id%>">
+                <div class="nmi-img fl">
+                    <%if(num == 0){%>
+                    <img src="<%=item.imgPathFirst%>">
+                    <%}else{%>
+                    <img class="lazy-loaded" data-imgsrc="<%=item.imgPathFirst%>" src="images/default-load.jpg">
+                    <%}%></div>
+                <div class="nmi-txt fl">
+                    <div class="tc-num"><strong><%=item.average_price%></strong>元/m<sup>2</sup></div>
+                    <p><%=item.onsales_count%>套在售</p>
+                    <p><%=item.onrent_count%>套在租</p>
+                    <%if(item.schools != ""){%>
+                    <label class="l0c5"><%=item.schools%></label>
+                    <%}if(item.subwaynum != "" && item.subwaypath_length != ""){%>
+                    <label class="lf04"><%=item.subwaynum%><%=item.subwaypath_length%></label>
+                    <%}%>
+                </div>
+            </a>
+        </div>
+        <%})%>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var navi = Zepto('#nav-smartSetup').navigator();
+
+    var links = $("#nav-smartSetup ul li");
+    var links_len=links.length;
+
+    function setTab(pos){
+        majorEstateSwipe.slide(pos-1);
+    }
+
+
+    function setTabIndex(index){
+        if(!links[index]) return;
+        var _id = links[index].id;
+        var menu = document.getElementById(_id);
+        var menudiv = document.getElementById("brief_"+_id);
+        menu.className="off";
+
+    }
+    setTabIndex(0);
+
+</script>

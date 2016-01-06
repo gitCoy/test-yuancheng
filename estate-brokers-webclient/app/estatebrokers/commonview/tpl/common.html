@@ -1,0 +1,203 @@
+<!--banner.html-->
+<script type="text/template" id="tpl-banner">
+    <div class="banner">
+        <div class="banWp addWrap" id="bannerWp">
+        </div>
+    </div>
+</script>
+<!--bannerCont.html-->
+<script type="text/template" id="tpl-bannerCont">
+    <div class="swipe" id="mySwipe">
+        <div class="swipe-wrap">
+            <%_.each(items,function(item,num) { if(num == 0) {%>
+            <div class="swipeBig"><a href="javascript:;"><img class="img-responsive" src="<%=item%>"/></a></div>
+            <%}else {%>
+            <div class="swipeBig"><a href="javascript:;"><img class="img-responsive lazy-loaded" data-imgsrc="<%=item%>" src="images/default-load.jpg"/></a></div>
+            <%}})%>
+        </div>
+    </div>
+
+    <ul id="banAct">
+        <%for(var i=0 ; i < items.length; i++){ %>
+        <%if(i == 0){%>
+        <li class="active"></li>
+        <%}else{%>
+        <li></li>
+        <%}}%>
+    </ul>
+</script>
+<!--bannerProperty.html-->
+<script type="text/template" id="tpl-bannerProperty">
+    <div class="banner">
+        <div class="banWp addWrapProper" id="bannerWpProper">
+        </div>
+    </div>
+</script>
+<!--footer.html-->
+<script type="text/template" id="tpl-footer">
+    <div class="footer">
+        <div class="ftWp">
+            <ul id="ft_menu" class="ft_menu">
+                <li class="active" router-data="index"> <a href="javascript:void(0)"><i class="iconfont icon-index"></i>
+                    <label>首页</label>
+                </a></li>
+                <li router-data="delegate"> <a class="footer-bar" href="javascript:void(0)"><i class="iconfont icon-delegate"></i>
+                    <label>委托有礼</label>
+                </a> </li>
+                <li router-data="convenienceShop"><a class="footer-bar" href="javascript:void(0)">
+                    <i class="iconfont icon-convenienceShop"></i>
+                    <label>便民服务</label>
+                </a> </li>
+                <li router-data="usercenter" id="microchat"> <a href="javascript:void(0)"><i class="iconfont icon-usercenter"></i>
+                    <label>个人中心</label>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var footerBars = "<%=currentBar%>";
+            $('#ft_menu li').each(function(){
+                if($(this).attr('router-data') === footerBars) {
+                    tabPanel(this, footerBars);
+                }
+            });
+        });
+
+        $("#ft_menu li").click(function(){
+            tabPanel(this);
+            $("#microchat").removeClass('microchatLabel');
+        });
+
+        function tabPanel(that, url) {
+            var currentBar = $('#ft_menu .active');
+            var selectBar = $(that).find(".active");
+            var routerUrl =  url || $(that).attr('router-data');
+
+            if (selectBar && selectBar.length > 0) {
+                return;
+            } else {
+                $(that).siblings().removeClass("active");
+                $(that).addClass("active");
+                sessionStorage.setItem('toRouterUrl', routerUrl);
+                window.Utils.Router.navigate(routerUrl, {trigger: true});
+            }
+
+        }
+</script>
+</script>
+<!--header.html-->
+<script type="text/template" id="tpl-header">
+    <div class="header">
+        <div class="hdWp pdX10">
+            <div class="hd-menu"><img src="images/common/menu.png" /></a></div>
+            <div class="hd-tit">Title</div>
+        </div>
+    </div>
+</script>
+<!--headerWithBackBtn.html-->
+<script type="text/template" id="tpl-headerWithBackBtn">
+    <div id="hdPage" class="<%=entrustType%>">
+        <header class="header">
+            <div class="hdWp pdX10">
+                <div class="hd-back"><a href="javascript:void(0);"><i class="iconfont">&#xe616;</i> </a></div>
+                <div class="hd-tit"><%=title%></div>
+                <% if(headerType == 1){ %>
+                <div class="hd-fav"><a href="javascript:void(0);" id="collect"><i class="iconfont icon-shoucang"></i> </a></div>
+                <%}%>
+            </div>
+        </header>
+    </div>
+</script>
+<!--headerWithMenuBtn.html-->
+<script type="text/template" id="tpl-headerWithMenuBtn">
+    <div class="header">
+        <div class="hdWp pdX10">
+            <div class="hd-menu" id="menuBtn"><a href="javascript:;" id="menuBtnA"><i class="iconfont">&#xe60f;</i> </a></div>
+            <div class="hd-tit">
+                <%if(storMenu == 1){%>
+                <a class="storeTitle"><span><%=title%></span><label></label></a>
+                <%}else{%>
+                <span><%=title%></span>
+                <%}%>
+            </div>
+        </div>
+    </div>
+    <div id="storeName">
+        <ul>
+            <%_.each(stores,function(item) {%>
+            <li storIdVal="<%=item.store_id%>"><%=item.store_name%></li>
+            <%})%>
+        </ul>
+    </div>
+</script>
+<!--indexBanner.html-->
+<script type="text/template" id="tpl-indexBanner">
+    <div class="swipe" id="mySwipe">
+        <div class="swipe-wrap">
+            <%_.each(items,function(item,num) { if(num == 0) {%>
+            <div><a href="#aboutus"><img class="img-responsive" src="<%=item%>" /></a></div>
+            <%}else if(num == 1){%>
+            <div><a href="#aboutPublic"><img class="img-responsive lazy-loaded" data-imgsrc="<%=item%>" src="images/default-load.jpg"/></a></div>
+            <%}else if(num == 2){%>
+            <div><a href="#delegate"><img class="img-responsive lazy-loaded" data-imgsrc="<%=item%>" src="images/default-load.jpg"/></a></div>
+            <%}else {%>
+            <div><a href="javascript:;"><img class="img-responsive lazy-loaded" data-imgsrc="<%=item%>" src="images/default-load.jpg"/></a></div>
+            <%}})%>
+        </div>
+    </div>
+
+    <ul id="banAct">
+        <%for(var i=0 ; i < items.length; i++){ %>
+        <%if(i == 0){%>
+        <li class="active"></li>
+        <%}else{%>
+        <li></li>
+        <%}}%>
+    </ul>
+</script>
+<!--mainSlide.html-->
+<script type="text/template" id="tpl-mainSlide">
+    <nav id="menu" class="menu">
+        <ul>
+            <li><a href="#estateMajor">小区</a></li>
+            <li><a href="#houseOnline">新房代理</a></li>
+            <li><a href="#houseUrgent">租房</a></li>
+            <li><a href="#aboutus">关于我们</a></li>
+            <li class="hd-per-li"><a href="#usercenter" class="hd-per">个人中心</a></li>
+            <li><a href="#myvillage">我的小区</a></li>
+            <li><a href="#myhouseold">我的二手房</a></li>
+            <li><a href="#mynewhouse">我的新房</a></li>
+            <li><a href="#myrental">我的租房</a></li>
+            <li><a href="#convenienceShop">便民服务</a></li>
+            <li><a href="#myentrust">我的委托</a></li>
+            <li><a href="#mymicrochat">我的微聊</a></li>
+            <li><a href="#mytoolbox">工具箱</a></li>
+        </ul>
+    </nav>
+    <style rel="stylesheet" type="text/css">
+        #container{height:100%;}
+    </style>
+    <div id="mainSlide">
+        <div class='slideMask'></div>
+    </div>
+</script>
+<!--navigateBar.html-->
+<script type="text/template" id="tpl-navigateBar">
+    <div class="perPosition">
+        <div class="ppWp mgY10 pdX10">
+            <p>小区<span>&gt;</span>翡翠城,精装</p>
+        </div>
+    </div>
+</script>
+<!--search.html-->
+<script type="text/template" id="tpl-search">
+    <div class="search floor2">
+        <div class="scWsrch">
+            <div class="sc-msg clearfix">
+                <div class="sc-msg-ing fl"><input type="text" id="searchInput" class="pdX10" placeholder="请输入您要找的小区和房源"></div>
+                <div class="sc-msg-btn fr searchFr"><a href="#search" id="searchButton">搜索</a></div>
+            </div>
+        </div>
+    </div>
+</script>

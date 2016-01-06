@@ -1,0 +1,31 @@
+<div class="perPosition">
+    <div class="ppWp pd10">
+        <p>个人中心<span>&gt;</span>我的小区</p>
+    </div>
+</div>
+
+<div class="fy-containt">
+    <div id="fyWrapper" class="tb-bs">
+        <div id="fyScroller" class="fy-conWp pdX10">
+            <!--<div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>-->
+            <ul id="fyList" class="fy-list">
+                <%_.each(items,function(item) {%>
+                <li class="pdY10"><a href="#majorInfo/<%=item.estate_id%>">
+                    <div class="fyBox">
+                        <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                        <div class="fy-txt">
+                            <h3><%=item.estate_name%></h3>
+                            <div class="fy-price"><span><%=item.average_price%></span><%=item.price_unit%></div>
+                            <p><span><%=item.onsales_count%></span>套在售&nbsp;<span><%=item.onrent_count%></span>套在租</p>
+                            <p><%=item.post_address%></p>
+                        </div>
+                    </div>
+                </a></li>
+                <%})%>
+
+            </ul>
+            <!--<div id="pullUp"> <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>-->
+        </div>
+
+    </div>
+</div>

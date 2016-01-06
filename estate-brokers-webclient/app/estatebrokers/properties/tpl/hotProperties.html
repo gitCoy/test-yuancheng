@@ -1,0 +1,18 @@
+<%_.each(items,function(item) {%>
+<div class="shf-box fl">
+    <div class="shf-box-pd">
+        <div class="shf_img"><a href="#userMyEntrust/<%=item.property_id%>"><img class="lazy-load" data-imgsrc="<%=item.imgPathFirst%>" src="images/default-load.jpg"></a></div>
+        <label class="bd01"><%=item.propType%></label>
+    </div>
+    <div class="shf-con">
+        <div class="shf-con-pri">
+            <dl class="clearfix">
+                <dt class=""><strong><%=item.price%></strong><%=item.price_unit%></dt>
+                <dd class=""><i><%=item.square%>㎡</i><label><%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</label></dd>
+            </dl>
+        </div>
+        <div class="shf-con-p"><%=item.property_title%></div>
+    </div>
+</div>
+<%})%>
+

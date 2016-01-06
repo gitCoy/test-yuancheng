@@ -1,0 +1,18 @@
+<div class="swipe" id="mySwipe">
+    <div class="swipe-wrap">
+        <%_.each(items,function(item,num) { if(num == 0) {%>
+        <div class="swipeBig"><a href="javascript:;"><img class="img-responsive" src="<%=item%>"/></a></div>
+        <%}else {%>
+        <div class="swipeBig"><a href="javascript:;"><img class="img-responsive lazy-loaded" data-imgsrc="<%=item%>" src="images/default-load.jpg"/></a></div>
+        <%}})%>
+    </div>
+</div>
+
+<ul id="banAct">
+    <%for(var i=0 ; i < items.length; i++){ %>
+    <%if(i == 0){%>
+    <li class="active"></li>
+    <%}else{%>
+    <li></li>
+    <%}}%>
+</ul>

@@ -1,0 +1,50 @@
+<div class="footer">
+    <div class="ftWp">
+        <ul id="ft_menu" class="ft_menu">
+            <li class="active" router-data="index"> <a href="javascript:void(0)"><i class="iconfont icon-index"></i>
+                <label>首页</label>
+            </a></li>
+            <li router-data="delegate"> <a class="footer-bar" href="javascript:void(0)"><i class="iconfont icon-delegate"></i>
+                <label>委托有礼</label>
+            </a> </li>
+            <li router-data="convenienceShop"><a class="footer-bar" href="javascript:void(0)">
+                <i class="iconfont icon-convenienceShop"></i>
+                <label>便民服务</label>
+            </a> </li>
+            <li router-data="usercenter" id="microchat"> <a href="javascript:void(0)"><i class="iconfont icon-usercenter"></i>
+                <label>个人中心</label>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function(){
+        var footerBars = "<%=currentBar%>";
+        $('#ft_menu li').each(function(){
+            if($(this).attr('router-data') === footerBars) {
+                tabPanel(this, footerBars);
+            }
+        });
+    });
+
+    $("#ft_menu li").click(function(){
+        tabPanel(this);
+        $("#microchat").removeClass('microchatLabel');
+    });
+
+    function tabPanel(that, url) {
+        var currentBar = $('#ft_menu .active');
+        var selectBar = $(that).find(".active");
+        var routerUrl =  url || $(that).attr('router-data');
+
+        if (selectBar && selectBar.length > 0) {
+            return;
+        } else {
+            $(that).siblings().removeClass("active");
+            $(that).addClass("active");
+            sessionStorage.setItem('toRouterUrl', routerUrl);
+            window.Utils.Router.navigate(routerUrl, {trigger: true});
+        }
+
+    }
+</script>

@@ -1,0 +1,29 @@
+<div class="fyInformation">
+    <div class="fyInfoWp mgY10 tb-bs">
+        <div class="fif-des pd10">
+            <h3><%=item.estate_name%></h3>
+            <ul class="fif-des-list clearfix">
+                <li class="fif-thr">均价：<strong><%=item.average_price%></strong><span><%=item.price_unit%></span></li>
+                <li class="fif-thr">地址：<span><%=item.post_address%></span></li>
+                <li>类别：<span><%=item.estate_type%></span></li>
+                <li>物业费：<span><%=item.management_fee%>元/㎡*月</span></li>
+                <li class="fif-thr">户型：<a href="javascript:;"><%=item.room_info_1[0]%><%=item.room_info_1[1]%></a><a href="javascript:;"><%=item.room_info_2[0]%><%=item.room_info_2[1]%></a><a href="javascript:;"><%=item.room_info_3[0]%><%=item.room_info_3[1]%></a><a href="javascript:;"><%=item.room_info_4[0]%><%=item.room_info_4[1]%></a></li>
+            </ul>
+            <div class="fif-des-label clearfix">
+                <%if(item.schools != ""){%>
+                <label class="gray">
+                    <a class="red">学区</a>
+                    <span><%=item.schools%></span>
+                </label>
+                <%}if(item.subwaynum != "" && item.subwaypath_length != ""){%>
+                <label class="gray">
+                    <a class="blue">地铁</a>
+                    <span><%=item.subwaynum%>号线<%=item.subwaypath_length%>米</span>
+                </label>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>
+
+

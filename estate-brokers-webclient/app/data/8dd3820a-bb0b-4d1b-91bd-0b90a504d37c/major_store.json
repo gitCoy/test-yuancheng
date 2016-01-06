@@ -1,0 +1,22 @@
+[
+  {
+    "store_id": "8dd3820a-bb0b-4d1b-91bd-0b90a504d37c",
+    "store_name": "绘锦不动产",
+    "display_name": "绘锦不动产",
+    "store_wxid": "gh_07e61d73d1f8",
+    "store_addr": "高新区天府二街复地雍湖湾707、709号",
+    "contact_focal": "廖勇",
+    "contact_phone": "13882121793",
+    "store_desc": "<p>关于我们这样的人啦</p>",
+    "app_title": "绘锦不动产",
+    "app_version": "1.1",
+    "app_site": null,
+    "oss_site": null,
+    "oss_bucket": null,
+    "image_cname": null,
+    "image_dir": null,
+    "index_banner_images": "8dd3820a-bb0b-4d1b-91bd-0b90a504d37c/banners/20151128131401_44.jpg, 8dd3820a-bb0b-4d1b-91bd-0b90a504d37c/banners/20151128131401_919.jpg, 8dd3820a-bb0b-4d1b-91bd-0b90a504d37c/banners/20151128131413_930.jpg",
+    "delegate_banner_image": "8dd3820a-bb0b-4d1b-91bd-0b90a504d37c/banners/20151130155857_936.jpg, 8dd3820a-bb0b-4d1b-91bd-0b90a504d37c/banners/20151130155958_510.jpg",
+    "about_banner_image": ""
+  }
+]

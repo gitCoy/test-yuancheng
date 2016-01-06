@@ -1,0 +1,13 @@
+<%_.each(items,function(item) {%>
+<li class="pdY10"> <a href="#userMyEntrust/<%=item.property_id%>">
+    <div class="fyBox">
+        <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+        <div class="fy-txt">
+            <h3><%=item.property_title%></h3>
+            <div class="fy-price"><span><%=item.price%></span><%=item.price_unit%></div>
+            <p><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+            <p><%=item.estate_address%></p>
+        </div>
+    </div>
+</a></li>
+<%})%>

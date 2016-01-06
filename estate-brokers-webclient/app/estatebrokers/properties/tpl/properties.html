@@ -1,0 +1,394 @@
+<!--aboutUs.html-->
+<script type="text/template" id="tpl-aboutUs">
+    <%_.each(items,function(item) {%>
+    <li><a href="#aboutUsActive/<%=item.activity_id%>">
+        <div class="actBox">
+            <div class="act-img fl"><img src="<%=item.images_path%>"></div>
+            <div class="act-txt">
+                <h3><%=item.activity_title%></h3>
+
+                <h2 class="act-date"><%=item.activity_comments%></h2>
+
+                <p><%=item.activity_subtitle%></p>
+
+                <p>详询门店</p>
+            </div>
+        </div>
+    </a></li>
+    <%})%>
+</script>
+<!--aboutUsActiveInfo.html-->
+<script type="text/template" id="tpl-aboutUsActiveInfo">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>关于我们<span>&gt;</span>委托有礼</p>
+        </div>
+    </div>
+
+    <style>
+        body{background-color: #fff;}
+        .pdX8{padding: 0 8px;}
+        .perPubTime{line-height: 30px;margin-bottom: 10px;color:#666;}
+        .wtc-example h4{font-size:16px; font-weight:bold; line-height:20px; padding:6px 0 0;}
+        .wtc-example p{text-indent:2em; font-size:14px; line-height:18px; color:#666;}
+        .wtc-example h3{font-size:18px; font-weight:bold; line-height:22px;}
+        .wtc-example h3.red-txt{color:#FF0004;}
+        .wtc-example em{font-style:normal; font-size:14px; color:#666; margin-bottom:10px; display:block;}
+    </style>
+
+    <div class="wtContaint">
+        <div class="wtcWp mgY10">
+            <div class="pdX8">
+                <!------内容区    示例   样式位于本页面，可删除----->
+                <div class="wtc-example">
+                    <!--<i><img src="<%=items.images_path%>"></i>
+                    <h4>时间：<%=items.activity_comments%></h4>
+                    <h4>详情：</h4>-->
+                    <%if(items.stroeAbout){%>
+                        <%if(items.store_desc == null){%>
+                    <div>
+                        暂无简介
+                    </div>
+                        <%}else{%>
+                    <div>
+                        <%=items.store_desc%>
+                    </div>
+                    <%}}else {%>
+                    <h4 class=""><%=items.public_subtitle%></h4>
+                    <div class="perPubTime"><%=items.activity_comments%></div>
+                    <div>
+                        <%=items.activity_desc%>
+                    </div>
+                    <%}%>
+                </div>
+                <!------内容区    示例----->
+            </div>
+        </div>
+    </div>
+</script>
+<!--aboutusContt.html-->
+<script type="text/template" id="tpl-aboutusContt">
+    <div class="act-containt">
+        <ul id="actList" class="act-list aboutAct">
+        </ul>
+    </div>
+</script>
+<!--aboutUsPublicont.html-->
+<script type="text/template" id="tpl-aboutUsPublicont">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>关于我们<span>&gt;</span>成交喜报</p>
+        </div>
+    </div>
+    <div class="fy-containt">
+        <div id="fyWrapper">
+            <div id="fyScroller" class="act-conWp">
+                <div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>
+                <ul id="actList" class="act-list">
+                </ul>
+                <div id="pullUp"> <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--aboutusTop.html-->
+<script type="text/template" id="tpl-aboutusTop">
+    <div class="cj-prosp">
+        <div class="cjpWp pdX10">
+            <h3 class="pdY10 storeDesc">截止目前，我们已帮助<span class="storeNum">1000</span>个家庭安家成都！</h3>
+            <div class="cjp-list clearfix">
+                <div class="cjp-logo fl"><a href="#aboutPublic">成交喜报</a></div>
+                <div class="cjp-news-list" id="gladMessage">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="perAd aboutUsPerAd pdY10">
+        <div class="padWp pdX10 floor2">
+            <a href="#storeAbout"><img src="<%=items.about_banner_image%>"></a>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    $(function () {
+        /*======next======*/
+        var indexLi = $(".cjp-news-list a").length;
+        if(indexLi > 2){
+            setInterval(function(){nextscroll()},3000);
+        }
+        function nextscroll() {
+            var vcon = $(".cjp-news-list ");
+            var offset = ($(".cjp-news-list a").height()) * -1;
+            vcon.animate({top: offset}, "slow", function () {
+                var firstItem = $(".cjp-news-list a").first();
+                vcon.append(firstItem);
+                $(this).css("top", "0px");
+            });
+        };
+    })
+</script>
+<!--gladMessage.html-->
+<script type="text/template" id="tpl-gladMessage">
+    <%_.each(items,function(item){%>
+    <a href="#aboutUsPublic/<%=item.public_id%>"><span>[<%=item.public_comments%>]</span><%=item.public_title%></a>
+    <%})%>
+</script>
+<!--hotProperties.html-->
+<script type="text/template" id="tpl-hotProperties">
+    <%_.each(items,function(item) {%>
+    <div class="shf-box fl">
+        <div class="shf-box-pd">
+            <div class="shf_img"><a href="#userMyEntrust/<%=item.property_id%>"><img class="lazy-load" data-imgsrc="<%=item.imgPathFirst%>" src="images/default-load.jpg"></a></div>
+            <label class="bd01"><%=item.propType%></label>
+        </div>
+        <div class="shf-con">
+            <div class="shf-con-pri">
+                <dl class="clearfix">
+                    <dt class=""><strong><%=item.price%></strong><%=item.price_unit%></dt>
+                    <dd class=""><i><%=item.square%>㎡</i><label><%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</label></dd>
+                </dl>
+            </div>
+            <div class="shf-con-p"><%=item.property_title%></div>
+        </div>
+    </div>
+    <%})%>
+</script>
+<!--houseUrgent.html-->
+<script type="text/template" id="tpl-houseUrgent">
+    <div class="fy-containt">
+        <div id="fyWrapper">
+            <div id="fyScroller" class="fy-conWp pdX10">
+                <div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>
+                <ul id="fyList" class="fy-list">
+                    <%_.each(items,function(item) {%>
+                    <li><a href="#properties/<%=item.estate_id%>/<%=item.property_id%>">
+                        <div class="fyBox">
+                            <div class="fy-img fl"><img src="<%=item.images_path%>"></div>
+                            <div class="fy-txt">
+                                <h3><%=item.property_title%></h3>
+                                <div class="fy-price"><span><%=item.price%></span><%=item.price_unit%></div>
+                                <p>><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+                                <p><%=item.infrastructures%></p>
+                            </div>
+                        </div>
+                    </a></li>
+                    <%})%>
+                </ul>
+                <div id="pullUp"><span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>
+            </div>
+
+        </div>
+    </div>
+</script>
+<!--noSearch.html-->
+<script type="text/template" id="tpl-noSearch">
+    <div class="srWp pdX10">
+        <div class="sr-con">
+            <div class="sr-con-null">
+                <p>暂无“<span class="searchRemind"></span>”相关楼盘和房源</p>
+                <p>请更换其他关键词试试或点击右上角图标致电我们。</p>
+            </div>
+        </div>
+    </div>
+</script>
+<!--propertyContainer.html-->
+<script type="text/template" id="tpl-propertyContainer">
+    <div class="fy-containt">
+        <div id="fyWrapper">
+            <div id="fyScroller" class="fy-conWp pdX10">
+                <div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>
+                <ul id="fyList" class="fy-list">
+                </ul>
+                <div id="pullUp"> <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--propertyDetailFooter.html-->
+<script type="text/template" id="tpl-propertyDetailFooter">
+    <div class="footerInfo">
+        <div class="ftiwp">
+            <ul class="fti-ul">
+                <li><a href="tel:<%=item.phone_num%>" class="fc00">
+                    <i class="iconfont">&#xe614;</i>
+                    <label>电话联系</label>
+                </a></li>
+
+                <li><a href="#microchatInfo/<%=item.user_id%>/<%=item.property_id%>/<%=item.real_name%>/<%=item.phone_num%>" class="f094">
+                    <i class="iconfont">&#xe605;</i>
+                    <label>微聊</label>
+                </a></li>
+
+                <li><a href="javavoid:void(0);">
+                    <div class="fti-ul-img"><img src="<%=item.avatarurl%>"></div>
+                    <dl>
+                        <dt><%=item.real_name%></dt>
+                        <dd><%=item.phone_num%></dd>
+                    </dl>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</script>
+<!--propertyDetailInfo.html-->
+<script type="text/template" id="tpl-propertyDetailInfo">
+    <div class="fyInformation">
+        <div class="fyInfoWp mgY10 pd10 tb-bs">
+            <div class="fif-des">
+                <!--<h3>翡翠城 精装 居家装修 大套二翡翠城 精装 居家装修 大套二翡翠城 精装</h3>-->
+                <h3><%=item.estate_name%> <%=item.property_title%>  <%=item.comments%></h3>
+                <ul class="fif-des-list clearfix">
+                    <li>售价：<strong><%=item.price%></strong><span><%=item.price_unit%></span></li>
+                    <li>户型：<span><%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</span></li>
+                    <li>楼层：<span><%=item.floor%>/<%=item.max_floor%></span></li>
+                    <li>面积：<span><%=item.square%>㎡</span></li>
+
+                    <% if(item.property_type == 1){ %>
+                    <li>类别：<span>住宅</span></li>
+                    <%}%>
+                    <% if(item.property_type == 2){ %>
+                    <li>类别：<span>写字楼</span></li>
+                    <%}%>
+
+                    <li>物业费：<span><%=item.management_fee%>元/㎡*月</span></li>
+                    <li class="fif-thr">地址：<span><%=item.estate_address%></span></li>
+                </ul>
+                <div class="fif-des-label clearfix">
+                    <label class="gray">
+                        <a class="red">学区</a>
+                        <span class="graySchool"><%=item.schools%></span>
+                    </label>
+                    <label class="gray">
+                        <a class="blue">地铁</a>
+                        <span><%=item.subwaynum%>号线<%=item.subwaypath_length%>米</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="fyInfoWp mgY10 pd10 tb-bs"> <!-- 固定高度 -->
+            <div id="fyInfo-Tabs">
+                <ul>
+                    <li><a href="#tabsList-1" class="tabulous_active" title="">房源描述</a></li>
+                    <li><a href="#tabsList-2" title="">周边配套</a></li>
+                    <li><a href="#tabsList-3" title="">交通路线</a></li>
+                </ul>
+                <div id="comTabs_container">
+                    <div id="tabsList-1" class="cdiv fyList">
+                        <div class="com-tabs-wp">
+                            <%=item.property_desc%>
+                        </div>
+                    </div>
+                    <div id="tabsList-2" class="cdiv fyList">
+                        <div class="com-tabs-wp">
+                            <%=item.infrastructures%>
+                        </div>
+                    </div>
+                    <div id="tabsList-3"  class="cdiv fyList">
+                        <div class="com-tabs-wp">
+                            <%=item.transport_info%>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</script>
+<!--propertyOnSaleList.html-->
+<script type="text/template" id="tpl-propertyOnSaleList">
+    <%_.each(items,function(item) {%>
+    <li class="pdY10"> <a href="#userMyEntrust/<%=item.property_id%>">
+        <div class="fyBox">
+            <div class="fy-img fl"><img src="<%=item.imgPathFirst%>"></div>
+            <div class="fy-txt">
+                <h3><%=item.property_title%></h3>
+                <div class="fy-price"><span><%=item.price%></span><%=item.price_unit%></div>
+                <p><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+                <p><%=item.estate_address%></p>
+            </div>
+        </div>
+    </a></li>
+    <%})%>
+</script>
+<!--propertySearch.html-->
+<script type="text/template" id="tpl-propertySearch">
+    <div class="perPosition">
+        <div class="ppWp pd10">
+            <p>搜索<span>&gt;</span>关于 “<span class="searchRemind"></span>” 的搜索结果</p>
+        </div>
+    </div>
+    <div class="act-containt" id="searchContaint">
+        <div id="fyWrapper" style="top:124px;">
+            <div id="fyScroller" class="act-conWp tb-bs" style="border-bottom:0;">
+                <div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span> </div>
+                <ul id="fyList" class="act-list">
+                </ul>
+                <div id="pullUp"> <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span> </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--propertySearchList.html-->
+<script type="text/template" id="tpl-propertySearchList">
+    <%_.each(items,function(item){%>
+    <li>
+        <%if(item.category == "PROP"){%>
+        <a href="#userMyEntrust/<%=item.property_id%>">
+            <div class="actBox">
+                <div class="act-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                <div class="act-txt">
+                    <h3><%=item.property_title%></h3>
+                    <h2 class="act-date"><span><%=item.price%></span><%=item.price_unit%></h2>
+                    <p><%=item.square%>㎡&nbsp;<%=item.bedroom%>室<%=item.livingroom%>厅<%=item.bathroom%>卫</p>
+                    <p><%=item.desc%></p>
+                </div>
+            </div>
+        </a>
+        <%}else{%>
+        <a href="#majorInfo/<%=item.estate_id%>">
+            <div class="actBox">
+                <div class="act-img fl"><img src="<%=item.imgPathFirst%>"></div>
+                <div class="act-txt">
+                    <h3><%=item.title%></h3>
+                    <h2 class="act-date"><span><%=item.average_price%></span><%=item.price_unit%></h2>
+                    <p><%=item.address%></p>
+                    <p><%=item.desc%></p>
+                </div>
+            </div>
+        </a><%}%>
+    </li>
+    <%})%>
+</script>
+<!--propertySelectMajor.html-->
+<script type="text/template" id="tpl-propertySelectMajor">
+    <div class="selectTab">
+        <div id="mask" style="display: none;"></div>
+        <div class="stWp bBS tb-bs">
+            <form>
+                <div class="stWp-xq-con flexbox">
+                    <div class="st-box diy_select selected">
+                        <input type="hidden" name="" class="diy_select_input">
+                        <div class='diy_select_txt diy_select_usual'><a href="javascript:;" class="diy_select_label">默认</a></div>
+                        <div class='diy_select_btn'></div>
+                        <ul class='diy_select_list diy_list_usual'>
+                        </ul>
+                    </div>
+                    <%_.each(items,function(item) {%>
+                    <div class="st-box diy_select">
+                        <input type="hidden" name="<%=item.name%>" class="diy_select_input">
+                        <div class='diy_select_txt' data-default="<%=item.label%>"><a href="javascript:;" class="diy_select_label"><%=item.label%></a></div>
+                        <div class='diy_select_btn'></div>
+                        <ul class='diy_select_list'>
+                            <%for(var i = 0,vals = item.values; i < vals.length; i ++){%>
+                            <li data-val="<%=vals[i].key%>"><%=vals[i].val%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                    <%})%>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>
